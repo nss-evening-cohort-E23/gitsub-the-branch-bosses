@@ -26,7 +26,7 @@ MAKE SURE TO VIEW ALL THE PAGES OF THE WIREFRAME: [Here is the wireframe](https:
 * Your team should be using bootstrap
 
 ### Pages
-Each team member is going to be responsible for the content of a different page, so decide on the name and content for each of those pages. We know that Githib uses tabs, but we want you to create separate pages with the same styles applied to them for consistency.
+Each team member is going to be responsible for the content of a different page, so decide on the name and content for each of those pages. We  know that Githib uses tabs, but we want you to create separate pages with the same styles applied to them for consistency.
 
 Some possible options are:
 
@@ -121,5 +121,3 @@ const usersExample = [
 
 * **Dynamic Buttons** - somewhere in your project there should be some dynamically created buttons (NOT IN THE HTML...RENDERED USING JAVASCRIPT) - clicking each button should perform some sort of action
 * **Form** - Each page in your project should have at least 1 form.  Submitting that form via a button click should do something.
-
-
