@@ -1,19 +1,25 @@
 const profile = [
   {
   name: "Taylor Swift",
-  imageUrl: "TSWIFT.png",
+  username: "taytayswifty13",
+  imageURL: "images/TSWIFT.png", 
   about: "Taylor Alison Swift is an American singer-songwriter. Widely recognized for her genre-spanning discography, songwriting and artistic reinventions, Swift is considered a prominent cultural figure.",
+  stats: {
+    followers: 400000000,
+    following: 3,
+    favorited: 200
+  },
   socials: {
     location: "Nashville",
     email: "tswizzle@gmail.com",
     webpage: "google.com",
     twitter: "https://twitter.com/taylorswift13?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
   },
-  buttons: [{
+  buttons: {
     follow: false,
     sponsor: false,
-  } 
-  ],
+  },
+  
   highlights: [
   "Grammy winning performances", "GitHub Star", "PRO"
   ],
@@ -58,3 +64,56 @@ const profile = [
     }
 ]
 }];
+
+
+const renderToDom = (divId, htmlToRender) => {
+    const divToRender = document.querySelector(divId);
+    divToRender.innerHTML = htmlToRender;
+    };
+
+ const profileOnDom = (array) => {
+    let domString = "";
+
+    for (let user of array) {
+
+        console.log(user.highlights);
+    
+
+    domString += `<div class="profile">
+    <img src="${user.imageUrl}" class="profile-img">
+    <div class="profile-body">
+      <h4 class="profile-name">${user.name}</h4>
+      <h5 class="profile-username">${user.username}</h5>
+      <p class="profile-about">${user.about}</p>
+        <div class="profile-buttons">
+            <button>Follow</button>
+            <button>Sponsor</button>
+            <button><img src="">...</button>
+        </div>
+        <div class="stats">
+        ${user.stats.followers} followers ${user.stats.following} following ${user.stats.favorited} favorited
+        </div>
+        <div class="socials">
+        ${user.socials.location} ${user.socials.email} ${user.socials.webpage} ${user.socials.twitter}
+        </div>
+    </div>
+    <div class="highlights">${user.highlights}</div>
+    <div class="organizations">
+    </div>
+    
+    
+    </div>
+    <div class="sponsors">
+    
+    </div>
+    </div>
+    `
+    }
+
+    renderToDom("#profile", domString);
+  console.log(renderToDom("#profile", domString));
+ 
+ };
+
+
+ profileOnDom(profile);
