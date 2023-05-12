@@ -10,7 +10,7 @@ body {
 .rightside{
  display: flex;
  flex-direction: column;
- background-color: coral;
+ background-color: rgb(26, 25, 25) ;
  width: 100%;
 }
 
@@ -61,4 +61,30 @@ footer {
   width: 40%;
   justify-content: space-evenly;
   align-items: center;
+}
+
+#beta {
+  border: 2px solid purple;
+  border-radius: 10px;
+  font-size: 15px;
+  padding: 2px;
+  color: purple;
+  background-color: plum;
+  opacity: .4;
+  margin-left: 20px;
+}
+
+.packages-form {
+  -webkit-text-fill-color: lightgrey;
+  margin: 20px 20px 20px 20px;
+}
+
+#exampleFormControlInput1 {
+  background-color: rgb(26, 25, 25);
+  border: 1px solid grey;
+}
+
+#exampleFormControlTextarea1 {
+  background-color: rgb(26, 25, 25);
+  border: 1px solid grey;
 }
