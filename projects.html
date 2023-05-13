@@ -45,8 +45,53 @@
         </nav>
         <!--link html pages to href -->
       </header>
-      <div class="list">List</div>
-      <div class="form">Form</div>
+      
+      <div class="list">
+        <!--Search Bar-->
+        <div class="container">
+
+          <div class="row height d-flex justify-content-center align-items-center">
+
+            <div class="col-md-8">
+
+              <div class="search">
+                <i class="fa fa-search"></i>
+                <input type="text" class="form-control" placeholder="Search:">
+              </div>
+              
+            </div>
+            
+          </div>
+      </div>
+      <!--New Project Button-->
+      <div id="modal-btn"><button id="open-modal">New Project</button></div>
+      <div>
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span id="close-modal">&times;</span>
+              <h2 class="form-header">Please enter a name for your new project:</h2>
+            
+        <form class ="form">
+          <input required type="text" class="form" id="project-name" placeholder="">
+          <button type="submit" class="submitBut" data-bs-dismiss="modal">Submit</button>
+        </form>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div id="project-list"></div>
+      <!--Project List-->
+      <!-- <ul class="list-group">
+        <li class="list-group-item active">Project List</li>
+        <li class="list-group-item">test-repo-30</li>
+        <li class="list-group-item">pet-adoption</li>
+        <li class="list-group-item">sorting-hat</li>
+        <li class="list-group-item">git-sub</li>
+        <li class="list-group-item">passion-project</li>
+      </ul> -->
+
+      </div>
+      <div class="form">FORM</div>
     </div>
   </div>
   <footer>
