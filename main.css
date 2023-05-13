@@ -1,5 +1,5 @@
 body {
-  background-color: navy;
+  background-color:  rgb(26, 25, 25);
   margin: 20px 20px 20px 20px;
 }
 
@@ -15,9 +15,9 @@ body {
 }
 
 .profile {
-  background-color: lavenderblush;
+  background-color: rgb(26, 25, 25);
   width: 250px;
-  height: 800px;
+  height: 1000px;
   
 }
 
@@ -35,14 +35,14 @@ body {
 
 header{
   width: 100%;
-  background-color: cornflowerblue;
+  background-color: rgb(26, 25, 25);
   height: 100px;
 }
 
 footer {
   display: flex;
   width: 100%;
-  background-color: cornflowerblue;
+  background-color: rgb(26, 25, 25);
   height: 90px;
   margin-top: 150px;
   justify-content: center;
@@ -87,4 +87,91 @@ footer {
 #exampleFormControlTextarea1 {
   background-color: rgb(26, 25, 25);
   border: 1px solid grey;
+}
+
+.profile-name {
+  text-align: left;
+  margin-left: 20px;
+  -webkit-text-fill-color: whitesmoke;
+}
+
+.profile-username {
+  text-align: left;
+  margin-left: 20px;
+  -webkit-text-fill-color: lightgray;
+}
+
+.profile-about {
+  -webkit-text-fill-color: whitesmoke;
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#stats {
+  -webkit-text-fill-color: whitesmoke;
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 10px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+#followbtn {
+  background-color: grey;
+  -webkit-text-fill-color: whitesmoke;
+  border: 1px solid slategray;
+  border-radius: 8px;
+  font-size: 15px;
+  margin-left: 20px;
+}
+
+#sponsorbtn {
+  background-color: grey;
+  -webkit-text-fill-color: whitesmoke;
+  border: 1px solid slategray;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+#morebtn {
+  background-color: grey;
+  -webkit-text-fill-color: whitesmoke;
+  border: 1px solid slategray;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+img {
+  width: 200px;
+  border-radius: 50%;
+  display: block;
+  margin-left: 20px;
+}
+
+#socials {
+  -webkit-text-fill-color: whitesmoke;
+  row-gap: -15px;
+}
+
+p {
+  margin-bottom: 5px;
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+.highlights {
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
+  -webkit-text-fill-color: whitesmoke;
+}
+
+.organizations {
+  -webkit-text-fill-color: whitesmoke;
+}
+
+.sponsors {
+  -webkit-text-fill-color: whitesmoke;
 }
