@@ -136,6 +136,61 @@ const renderToDom = (divId, htmlToRender) => {
   console.log(renderToDom("#profile", domString));
  
  };
-
  
  profileOnDom(profile);
+
+ //open modal button
+const openModalBtn = document.getElementById("open-modal")
+openModalBtn.onclick = function() {
+  modal.style.display = "block";
+} 
+//close modal button
+const closeModalBtn = document.getElementById("close-modal");
+closeModalBtn.onclick = function() {
+  modal.style.display = "none";
+}
+
+const projects = [{
+  id: 1,
+  name: "test-repo-30"
+},
+{
+    id: 2,
+  name: "pet-adoption"
+},
+{
+  id: 3,
+  name: "sorting-hat"
+}];
+
+const projectOnDom = (array) => {
+  let domString = "";
+  for (const newProject of array){
+    domString += `<ul class="list-group">
+    <li class="list-group-item active">${newProject.name}</li>
+  </ul>`
+  }
+  renderToDom('#project-list', domString);
+}
+
+const form = document.querySelector('form');
+
+const createProject = (e) => {
+  e.preventDefault();
+
+  const newProjectObj = {
+    id: projects.length + 1,
+    name: document.querySelector('#project-name').value,
+  }
+
+  projects.push(newProjectObj);
+  projectOnDom(projects);
+  form.reset();
+}
+
+form.addEventListener('submit', createProject);
+
+projectOnDom(projects);
+
+profileOnDom(profile);
+
