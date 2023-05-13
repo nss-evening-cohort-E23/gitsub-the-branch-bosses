@@ -167,7 +167,8 @@ const projectOnDom = (array) => {
   let domString = "";
   for (const newProject of array){
     domString += `<ul class="list-group">
-    <li class="list-group-item active">${newProject.name}</li>
+    <li class="list-group-item">${newProject.name}</li>
+    <br>
   </ul>`
   }
   renderToDom('#project-list', domString);
@@ -193,4 +194,3 @@ form.addEventListener('submit', createProject);
 projectOnDom(projects);
 
 profileOnDom(profile);
-

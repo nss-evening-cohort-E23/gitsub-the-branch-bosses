@@ -22,13 +22,13 @@ body {
 }
 
 .list {
-  background-color: green;
+  background-color: rgb(26, 25, 25);
   height: 100%;
   width: 100%;
 }
 
 .form {
-  background-color: lightyellow;
+  background-color: rgb(26, 25, 25);
   height: 100%;
   width: 100%;
 }
@@ -174,4 +174,38 @@ p {
 
 .sponsors {
   -webkit-text-fill-color: whitesmoke;
+}
+
+#open-modal {
+  background-color: grey;
+  border: 2px solid rgb(64, 73, 82);
+  -webkit-text-fill-color: whitesmoke;
+  border-radius: 8px;
+  font-size: 26px;
+  margin-top: 20px;
+  margin-left: 40%;
+}
+
+#close-modal:hover,
+#close-modal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.list-group{
+  justify-content: center;
+  max-width: 1200px;
+}
+
+.modal-content{
+  padding-left: 20px;
+  padding-bottom: 20px;
+  margin-top: 50px;
+  margin-left: 700px;
+  max-width: 650px;
+}
+
+.project-form-input {
+  background-color: white;
 }
