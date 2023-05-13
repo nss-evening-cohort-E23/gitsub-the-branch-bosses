@@ -66,6 +66,50 @@ const profile = [
 }];
 
 
+const repoData = [
+  {
+    name: "Folklore",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    languages: ["JavaScript", "HTML", "CSS"],
+    tags: ["react", "serverless", "synergy"],
+    forks: 22,
+    stars: 100,
+    license: undefined,
+    issues: 0
+  },
+  {
+    name: "Evermore",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    languages: ["Python", "C"],
+    tags: ["dev", "kernel", "susecon"],
+    forks: 11,
+    stars: 101,
+    license: "GNU General Public License v3.0",
+    issues: 0
+  },
+  {
+    name: "Midnights",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    languages: ["JavaScript", "HTML", "CSS"],
+    tags: ["react", "framework", "dev"],
+    forks: 6,
+    stars: 57,
+    license: undefined,
+    issues: 3
+  },
+  {
+    name: "Reputation",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    languages: ["TypeScript"],
+    tags: ["look", "what", "you", "made", "me", "do"],
+    forks: 2,
+    stars: 36,
+    license: undefined,
+    issues: 4
+  },
+];
+
+
 const renderToDom = (divId, htmlToRender) => {
     const divToRender = document.querySelector(divId);
     divToRender.innerHTML = htmlToRender;
@@ -117,3 +161,119 @@ const renderToDom = (divId, htmlToRender) => {
 
 
  profileOnDom(profile);
+
+
+ const reposOnDom = () => {
+  let repoDomString = "";
+
+  for (let repo of repoData) {
+    repoDomString += `
+    
+    <div class="repository">
+      <div class="repo">
+        <h1 class="repo-name">${repo.name}</h1>
+        <h3>${repo.description}</h3>
+        <div class="repo-tags" id="${repo.name}-tags"></div>
+        <div class="repo-info" id="${repo.name}-info>
+          <div id="${repo.name}-languages"></div>
+          <div id="${repo.name}-stars"></div>
+          <div id="${repo.name}-forks"></div>
+          <div id="${repo.name}-license"></div>
+          <div id="${repo.name}-issues"></div>
+        </div>
+      </div>
+      <div class="star-button">
+        <button></button>
+      </div>
+    </div>
+   ` 
+    
+  }
+
+ };
+
+ const repoTagsOnDom = () => {
+  let repoTagDomString = "";
+
+  for (let repo of repoData) {
+    for (let tag of repo.tags) {
+      
+      if (tag !== 0 || undefined) {
+      repoTagDomString += `
+      <a href="" class="repo-tag">${tag}</a>
+      `
+      };
+     
+    };
+    renderToDom(`#${repo.name}-tags`, repoTagDomString);
+  }
+ };
+
+ 
+
+
+//  const repoInfoOnDom = () => {
+
+//   let repoInfoDomString = "";
+//   let infoToRender = [];
+//   let idsToRender = {};
+//   for (let repo of repoData) { 
+
+//   const repoArgumentsOnDom = (languages, stars, forks, license, issues) => {
+  
+//       if (languages !== undefined || 0) {
+//         idsToRender.language = "language"
+//       };
+//       if (stars !== undefined || 0) {
+//         idsToRender.stars = "stars"
+//       };
+//       if (forks !== undefined || 0) {
+//         idsToRender.forks = "forks"
+//       };
+//       if (license !== undefined || 0) {
+//         idsToRender.license = "license"
+//       };
+//       if (issues !== undefined || 0) {
+//         idsToRender.stars = "stars"
+//       };
+//     //  languages = repo.languages;
+//     //  stars = repo.stars;
+//     //  forks = repo.forks;
+//     //  license = repo.license;
+//     //  issues = repo.issues;
+
+//      for (let i = 0; i < arguments.length; i++) {
+//       if (arguments[i] !== undefined || 0) {
+//         infoToRender = arguments.slice(i, 1);
+//       }
+//      }
+//      for (let j = 0; j < infoToRender.length; j++) {
+//       repoInfoDomString += 
+     
+    
+//       `
+       
+//        <div id="${repo.name}-${infoToRender[j]}"></div>
+       
+    
+//        `
+//       }
+  
+
+//    };
+
+// repoArgumentsOnDom(repo.languages, repo.stars, repo.forks, repo.license, repo.issues)
+
+
+//  }
+// };
+
+
+ const repoFormOnDom = () => {
+  let repoFormDomString = ` 
+  
+    <form class="repo-form"></form>
+   
+   `
+
+ };
