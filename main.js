@@ -74,7 +74,7 @@ const repoData = [
     tags: ["react", "serverless", "synergy"],
     forks: 22,
     stars: 100,
-    license: undefined,
+    license: [],
     issues: 0
   },
   {
@@ -84,7 +84,7 @@ const repoData = [
     tags: ["dev", "kernel", "susecon"],
     forks: 11,
     stars: 101,
-    license: "GNU General Public License v3.0",
+    license: ["GNU General Public License v3.0"],
     issues: 0
   },
   {
@@ -94,7 +94,7 @@ const repoData = [
     tags: ["react", "framework", "dev"],
     forks: 6,
     stars: 57,
-    license: undefined,
+    license: [],
     issues: 3
   },
   {
@@ -104,7 +104,7 @@ const repoData = [
     tags: ["look", "what", "you", "made", "me", "do"],
     forks: 2,
     stars: 36,
-    license: undefined,
+    license: [],
     issues: 4
   },
 ];
@@ -117,6 +117,7 @@ const renderToDom = (divId, htmlToRender) => {
 
  const profileOnDom = (array) => {
     let domString = "";
+   
 
     for (let user of array) {
 
@@ -165,8 +166,23 @@ const renderToDom = (divId, htmlToRender) => {
 
  const reposOnDom = () => {
   let repoDomString = "";
+  let newLangArr = [];
+  let newLicenseArr = [];
 
   for (let repo of repoData) {
+    let langArr = repo.languages;
+      if (langArr.length <= 1) {
+        newLangArr = langArr;
+        } else {
+        newLangArr = langArr.join(" ");
+      };
+
+    let licenseArr = repo.license;
+      if (licenseArr.length <= 1) {
+          newLicenseArr = licenseArr
+        } else {
+        newLicenseArr = licenseArr.join(" ");
+      };
     repoDomString += `
     
     <div class="repository">
@@ -175,11 +191,11 @@ const renderToDom = (divId, htmlToRender) => {
         <h3>${repo.description}</h3>
         <div class="repo-tags" id="${repo.name}-tags"></div>
         <div class="repo-info" id="${repo.name}-info>
-          <div id="${repo.name}-languages"></div>
-          <div id="${repo.name}-stars"></div>
-          <div id="${repo.name}-forks"></div>
-          <div id="${repo.name}-license"></div>
-          <div id="${repo.name}-issues"></div>
+          <div id="${repo.name}-languages">${newLangArr}</div>
+          <div id="${repo.name}-stars"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path> ${repo.stars}</div>
+          <div id="${repo.name}-forks"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"></path>${repo.forks}</div>
+          <div id="${repo.name}-license">${newLicenseArr}</div>
+          <div id="${repo.name}-issues">${repo.issues} issues need help</div>
         </div>
       </div>
       <div class="star-button">
@@ -187,16 +203,10 @@ const renderToDom = (divId, htmlToRender) => {
       </div>
     </div>
    ` 
-    
-  }
-
- };
-
- const repoInfoOnDom = () => {
-  const repoTagsOnDom = () => {
+   const repoTagsOnDom = () => {
     let repoTagDomString = "";
 
-    for (let repo of repoData) {
+    // for (let repo of repoData) {
       for (let tag of repo.tags) {
         
         if (tag !== undefined) {
@@ -207,141 +217,148 @@ const renderToDom = (divId, htmlToRender) => {
       
       };
       renderToDom(`#${repo.name}-tags`, repoTagDomString);
-    }
+    // }
   };
 
-  const repoLangOnDom = () => {
-    let repoLangDomString = "";
+repoTagsOnDom();
 
-    for (let repo of repoData) {
-      for (let lang of repo.languages) {
-        
-        if (lang !== undefined) {
-        repoLangDomString += `
-        <div class="repo-lang">${lang}</div>
-        `
-        };
-      
-      };
-      renderToDom(`#${repo.name}-languages`, repoLangDomString);
-    }
-  };
 
-  const repoStarsOnDom = () => {
-    let repoStarsDomString = "";
+}
 
-    for (let repo of repoData) {
-      for (let count of repo.stars) {
-        
-        if (count !== 0) {
-        repoStarsDomString += `
-        <div class="repo-stars"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path>${count}</div>
-        `
-        };
-      
-      };
-      renderToDom(`#${repo.name}-stars`, repoStarsDomString);
-    }
-  };
 
-  const repoForksOnDom = () => {
-    let repoForksDomString = "";
 
-    for (let repo of repoData) {
-      for (let count of repo.forks) {
-        
-        if (count !== 0) {
-        repoForksDomString += `
-        <div class="repo-forks"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"></path>${count}</div>
-        `
-        };
-      
-      };
-      renderToDom(`#${repo.name}-forks`, repoForksDomString);
-    }
-  };
 
-  const repoLicenseOnDom = () => {
-    let repoLicenseDomString = "";
 
-    for (let repo of repoData) {
-      for (let license of repo.license) {
-        
-        if (license !== undefined) {
-        repoLicenseDomString += `
-        <div class="repo-license">${license}</div>
-        `
-        };
-      
-      };
-      renderToDom(`#${repo.name}-license`, repoLicenseDomString);
-    }
-  };
-  
+  renderToDom("#repos-list", repoDomString);
+};
 
- };
+
 //  const repoInfoOnDom = () => {
+  const repoTagsOnDom = () => {
+    let repoTagDomString = "";
 
-//   let repoInfoDomString = "";
-//   let infoToRender = [];
-//   let idsToRender = {};
-//   for (let repo of repoData) { 
+    // for (let repo of repoData) {
+      for (let tag of repo.tags) {
+        
+        if (tag !== undefined) {
+        repoTagDomString += `
+        <a href="" class="repo-tag">${tag}</a>
+        `
+        };
+      
+      };
+      renderToDom(`#${repo.name}-tags`, repoTagDomString);
+    // }
+  };
 
-//   const repoArgumentsOnDom = (languages, stars, forks, license, issues) => {
+  // const repoLangOnDom = () => {
+  //   let repoLangDomString = "";
+
+  //   // for (let repo of repoData) {
+  //     for (let lang of repo.languages) {
+        
+  //       if (lang) {
+  //       repoLangDomString += `
+  //       <div class="repo-lang">${lang}</div>
+  //       `
+  //       } else {return};
+      
+  //     };
+  //     renderToDom(`#${repo.name}-languages`, repoLangDomString);
+  //   // }
+  // };
+
+  // const repoStarsOnDom = () => {
+  //   let repoStarsDomString = "";
+
+  //   // for (let repo of repoData) {
+  //     for (let count of repo.stars) {
+        
+  //       if (count !== 0) {
+  //       repoStarsDomString += `
+  //       <div class="repo-stars"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path>${count}</div>
+  //       `
+  //       };
+      
+  //     };
+  //     renderToDom(`#${repo.name}-stars`, repoStarsDomString);
+  //   // }
+  // };
+
+  // const repoForksOnDom = () => {
+  //   let repoForksDomString = "";
+
+  //   // for (let repo of repoData) {
+  //     for (let count of repo.forks) {
+        
+  //       if (count !== 0) {
+  //       repoForksDomString += `
+  //       <div class="repo-forks"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"></path>${count}</div>
+  //       `
+  //       };
+      
+  //     };
+  //     renderToDom(`#${repo.name}-forks`, repoForksDomString);
+  //   // }
+  // };
+
+  // const repoLicenseOnDom = () => {
+  //   let repoLicenseDomString = "";
+
+  //   // for (let repo of repoData) {
+  //     for (let license of repo.license) {
+        
+  //       if (license !== undefined) {
+  //       repoLicenseDomString += `
+  //       <div class="repo-license">${license}</div>
+  //       `
+  //       };
+      
+  //     };
+  //     renderToDom(`#${repo.name}-license`, repoLicenseDomString);
+  //   // }
+  // };
+
+  // const repoIssuesOnDom = () => {
+  //   let repoIssuesDomString = "";
+
+  //   // for (let repo of repoData) {
+  //     for (let count of repo.issues) {
+        
+  //       if (count !== 0) {
+  //       repoIssuesDomString += `
+  //       <div class="repo-forks">${count} issues need help</div>
+  //       `
+  //       };
+      
+  //     };
+  //     renderToDom(`#${repo.name}-issues`, repoIssuesDomString);
+  //   // }
+  // };
+
+//   repoTagsOnDom();
+//   repoLangOnDom();
+//   // repoStarsOnDom();
+//   // repoForksOnDom();
+//   repoLicenseOnDom();
+//   // repoIssuesOnDom();
   
-//       if (languages !== undefined || 0) {
-//         idsToRender.language = "language"
-//       };
-//       if (stars !== undefined || 0) {
-//         idsToRender.stars = "stars"
-//       };
-//       if (forks !== undefined || 0) {
-//         idsToRender.forks = "forks"
-//       };
-//       if (license !== undefined || 0) {
-//         idsToRender.license = "license"
-//       };
-//       if (issues !== undefined || 0) {
-//         idsToRender.stars = "stars"
-//       };
-//     //  languages = repo.languages;
-//     //  stars = repo.stars;
-//     //  forks = repo.forks;
-//     //  license = repo.license;
-//     //  issues = repo.issues;
 
-//      for (let i = 0; i < arguments.length; i++) {
-//       if (arguments[i] !== undefined || 0) {
-//         infoToRender = arguments.slice(i, 1);
-//       }
-//      }
-//      for (let j = 0; j < infoToRender.length; j++) {
-//       repoInfoDomString += 
-     
-    
-//       `
-       
-//        <div id="${repo.name}-${infoToRender[j]}"></div>
-       
-    
-//        `
-//       }
+//  };
+
+
+//  const repoFormOnDom = () => {
+//   let repoFormDomString = ` 
   
-
-//    };
-
-// repoArgumentsOnDom(repo.languages, repo.stars, repo.forks, repo.license, repo.issues)
-
-
-//  }
-// };
-
-
- const repoFormOnDom = () => {
-  let repoFormDomString = ` 
-  
-    <form class="repo-form"></form>
+//     <form class="repo-form"></form>
    
-   `
+//    `
 
+//  };
+
+ const startApp = () => {
+  reposOnDom();
+  // repoInfoOnDom();
  };
+
+ startApp();
