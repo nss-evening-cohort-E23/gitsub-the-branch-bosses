@@ -91,9 +91,9 @@ const renderToDom = (divId, htmlToRender) => {
     divToRender.innerHTML = htmlToRender;
 };
 
- const profileOnDom = (array) => {
-    let domString = "";
-   
+//  const profileOnDom = (array) => {
+//     let domString = "";
+//  };
 
 
 const profileOnDom = (array) => {
@@ -194,7 +194,9 @@ const projectOnDom = (array) => {
   let domString = "";
   for (const newProject of array){
     domString += `<ul class="list-group">
-    <li class="list-group-item active">${newProject.name}</li>
+    <br>
+    <li class="list-group-item">${newProject.name}</li>
+    <br>
   </ul>`
   }
   renderToDom('#project-list', domString);
@@ -457,6 +459,3 @@ const startApp = () => {
 }
 
  startApp();
-
-
-
