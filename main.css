@@ -92,6 +92,7 @@ footer {
 .profile-name {
   text-align: left;
   margin-left: 20px;
+  margin-top: 20px;
   -webkit-text-fill-color: whitesmoke;
 }
 
@@ -105,7 +106,8 @@ footer {
   -webkit-text-fill-color: whitesmoke;
   text-align: left;
   margin-left: 20px;
-  margin-right: 20px;
+  margin-right: 40px;
+  margin-bottom: 10px;
 }
 
 #stats {
@@ -119,31 +121,31 @@ footer {
 }
 
 #followbtn {
-  background-color: grey;
+  background-color: rgb(65, 65, 65);
   -webkit-text-fill-color: whitesmoke;
-  border: 1px solid slategray;
+  border: 1px solid rgb(58, 58, 58);
   border-radius: 8px;
   font-size: 15px;
   margin-left: 20px;
 }
 
 #sponsorbtn {
-  background-color: grey;
+  background-color: rgb(65, 65, 65);
   -webkit-text-fill-color: whitesmoke;
-  border: 1px solid slategray;
+  border: 1px solid rgb(58, 58, 58);
   border-radius: 8px;
   font-size: 15px;
 }
 
 #morebtn {
-  background-color: grey;
+  background-color: rgb(65, 65, 65);
   -webkit-text-fill-color: whitesmoke;
-  border: 1px solid slategray;
+  border: 1px solid rgb(58, 58, 58);
   border-radius: 8px;
   font-size: 15px;
 }
 
-img {
+img.profileimg {
   width: 200px;
   border-radius: 50%;
   display: block;
@@ -170,8 +172,37 @@ p {
 
 .organizations {
   -webkit-text-fill-color: whitesmoke;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .sponsors {
   -webkit-text-fill-color: whitesmoke;
+  margin-left: 20px;
+
+}
+
+img.org{
+  width: 40px;
+  height: 40px;
+  border-radius: 25%;
+  margin-top: 10px;
+  margin-right:15px
+}
+
+img.spon{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+.nav-link.active::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: orange; 
+  margin-top: 4px;
 }
