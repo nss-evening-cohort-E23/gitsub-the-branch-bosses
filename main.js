@@ -39,8 +39,7 @@ const profile = [
     }
 }];
 
-
-
+//REPO
 const repoData = [
   {
     name: "Folklore",
@@ -90,10 +89,6 @@ const renderToDom = (divId, htmlToRender) => {
     const divToRender = document.querySelector(divId);
     divToRender.innerHTML = htmlToRender;
 };
-
- const profileOnDom = (array) => {
-    let domString = "";
-   
 
 
 const profileOnDom = (array) => {
@@ -306,7 +301,7 @@ const newPackageCard = (event) => {
   const newPackageName = document.getElementById("packname").value;
   const newPackageDescription = document.getElementById("packdescription").value;
 
-  // Create new package card HTML string
+
   const packageCardString = `
   <div class="row" style="margin: 10px;">
     <div class="col-sm-12">
@@ -324,6 +319,9 @@ const newPackageCard = (event) => {
   const packageCard = document.createElement("div");
   packageCard.innerHTML = packageCardString;
   newPackageOnDom.appendChild(packageCard);
+
+  document.getElementById("packname").value = "";
+  document.getElementById("packdescription").value = "";
 };
 
 
@@ -457,6 +455,3 @@ const startApp = () => {
 }
 
  startApp();
-
-
-
