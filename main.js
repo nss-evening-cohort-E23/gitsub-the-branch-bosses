@@ -196,7 +196,9 @@ const projectOnDom = (array) => {
   let domString = "";
   for (const newProject of array){
     domString += `<ul class="list-group">
-    <li class="list-group-item active">${newProject.name}</li>
+    <br>
+    <li class="list-group-item">${newProject.name}</li>
+    <br>
   </ul>`
   }
   renderToDom('#project-list', domString);
@@ -448,6 +450,10 @@ const startApp = () => {
   }
      if (document.URL.includes("repositories.html")) {
     reposOnDom();}
+
 };
 
+ 
+
  startApp()
+
