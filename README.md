@@ -23,7 +23,7 @@ https://www.figma.com/file/8vIX1yEXd2UxdWARbWqAje/GitSub?type=design&node-id=5-5
 Use this as a foundation for layout and styles for implementation. 
 
 # Loom Video
-
+https://www.loom.com/share/cf415e6e4bf240efbcc89eed59e7a58f
 
 
 # Contributors 
