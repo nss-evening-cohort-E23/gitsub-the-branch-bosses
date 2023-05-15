@@ -63,6 +63,7 @@ footer {
   align-items: center;
 }
 
+
 #beta {
   border: 2px solid purple;
   border-radius: 10px;
@@ -174,4 +175,45 @@ p {
 
 .sponsors {
   -webkit-text-fill-color: whitesmoke;
+
 }
+
+.repository {
+  display: flex;
+  align-content: center;
+}
+
+.repo-info {
+  display: flex;
+  justify-content: start;
+  align-content: center;
+  
+}
+
+.repo-langs, .repo-stars, .repo-forks, .repo-license, .repo-issues {
+  display: inline;
+  height: 20px;  
+  margin: 10px;
+}
+
+.repo-stars > svg {
+  width: 50%;
+  height: 80%;
+
+}
+
+.repo-stars {
+  width: 60px;
+  justify-content: space-around;
+  
+}
+
+.repo-forks > svg {
+  width: 50%;
+  height: 80%;
+  
+}
+
+.repo-forks {
+  width: 60px;
+  justify-content: space-around;
