@@ -22,13 +22,13 @@ body {
 }
 
 .list {
-  background-color: green;
+  background-color: transparent;
   height: 100%;
   width: 100%;
 }
 
 .form {
-  background-color: lightyellow;
+  background-color: transparent;
   height: 100%;
   width: 100%;
 }
@@ -42,11 +42,18 @@ header{
 footer {
   display: flex;
   width: 100%;
-  background-color: rgb(26, 25, 25);
+  background-color: #343A40;
   height: 90px;
   margin-top: 150px;
   justify-content: center;
   align-items: center;
+  
+}
+
+.button-row > button {
+  background-color: #1A73F7;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 #github-logo {
@@ -214,13 +221,16 @@ img.spon{
 .repository {
   display: flex;
   align-content: center;
+  color: gainsboro;
+  border-bottom: 2px solid #343A40;
+  
 }
 
 .repo-info {
   display: flex;
   justify-content: start;
   align-content: center;
-  
+  font-size: 10px;
 }
 
 .repo-langs, .repo-stars, .repo-forks, .repo-license, .repo-issues {
@@ -251,3 +261,35 @@ img.spon{
 .repo-forks {
   width: 60px;
   justify-content: space-around;
+
+}
+
+.repo-tags > button {
+  background-color: #343A40;
+  color: #1A73F7;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 10px;
+
+}
+
+.repo-name {
+  font-size: 30px;
+}
+
+.repo-description {
+  font-size: 15px;
+}
+
+#repo-form {
+  margin-top: 100px;
+  background-color: transparent;
+}
+
+#create-repo {
+  background-color: #1A73F7;
+}
+
+#repos-list {
+  margin-top: 40px;
+}
