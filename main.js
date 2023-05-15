@@ -418,7 +418,7 @@ const newRepoObj = {
   id: (repoData.length + 1),
   name: document.querySelector("#repo-form-name").value,
   description: document.querySelector("#repo-form-description").value,
-  languages: undefined,
+  languages: [],
   tags: [],
   forks: 0,
   stars: 0,
@@ -458,5 +458,3 @@ const startApp = () => {
  
 
  startApp()
-
-
