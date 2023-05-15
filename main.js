@@ -91,9 +91,7 @@ const renderToDom = (divId, htmlToRender) => {
     divToRender.innerHTML = htmlToRender;
 };
 
- const profileOnDom = (array) => {
-    let domString = "";
-   
+
 
 
 const profileOnDom = (array) => {
@@ -329,14 +327,6 @@ const newPackageCard = (event) => {
 
 
 
-
-
-
-
-
-
-
-
  const reposOnDom = () => {
   let repoDomString = "";
   let newLangArr = [];
@@ -454,9 +444,6 @@ const startApp = () => {
   }
      if (document.URL.includes("repositories.html")) {
     reposOnDom();}
-}
+};
 
- startApp();
-
-
-
+ startApp()
