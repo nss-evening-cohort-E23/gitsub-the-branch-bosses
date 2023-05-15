@@ -43,8 +43,9 @@ const profile = [
 
 const repoData = [
   {
+    id: 1,
     name: "Folklore",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: "The one with the guy from The National",
     languages: ["JavaScript", "HTML", "CSS"],
     tags: ["react", "serverless"],
     forks: 22,
@@ -53,8 +54,9 @@ const repoData = [
     issues: 0
   },
   {
+    id: 2,
     name: "Evermore",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: "The other one with the guy from The National",
     languages: ["Python", "C"],
     tags: ["dev", "kernel", "susecon"],
     forks: 11,
@@ -63,8 +65,9 @@ const repoData = [
     issues: 0
   },
   {
+    id: 3,
     name: "Midnights",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: "Karma is also my boyfriend",
     languages: ["JavaScript", "HTML", "CSS"],
     tags: ["react", "framework", "dev"],
     forks: 6,
@@ -73,8 +76,9 @@ const repoData = [
     issues: 3
   },
   {
+    id: 4,
     name: "Reputation",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: "The description can't come to the phone right now",
     languages: ["TypeScript"],
     tags: ["look", "what", "you", "made", "me", "do"],
     forks: 2,
@@ -91,9 +95,7 @@ const renderToDom = (divId, htmlToRender) => {
     divToRender.innerHTML = htmlToRender;
 };
 
-//  const profileOnDom = (array) => {
-//     let domString = "";
-//  };
+
 
 
 const profileOnDom = (array) => {
@@ -331,14 +333,6 @@ const newPackageCard = (event) => {
 
 
 
-
-
-
-
-
-
-
-
  const reposOnDom = () => {
   let repoDomString = "";
   let newLangArr = [];
@@ -382,7 +376,7 @@ const newPackageCard = (event) => {
     <div class="repository">
       <div class="repo">
         <h1 class="repo-name">${repo.name}</h1>
-        <h3>${repo.description}</h3>
+        <h3 class="repo-description">${repo.description}</h3>
         <div class="repo-tags" id="${repo.name}-tags">${tagButtons()}</div>
         <div class="repo-info" id="${repo.name}-info">
           <div class="repo-langs" id="${repo.name}-languages">${newLangArr}</div>
@@ -391,9 +385,6 @@ const newPackageCard = (event) => {
           <div class="repo-license" id="${repo.name}-license">${newLicenseArr}</div>
           <div class="repo-issues" id="${repo.name}-issues">${repo.issues} issues need help</div>
         </div>
-      </div>
-      <div class="star-button">
-        <button></button>
       </div>
     </div>
    ` 
@@ -423,6 +414,7 @@ const addRepo = (e) => {
   e.preventDefault();
 
 const newRepoObj = {
+  id: (repoData.length + 1),
   name: document.querySelector("#repo-form-name").value,
   description: document.querySelector("#repo-form-description").value,
   languages: undefined,
@@ -438,8 +430,10 @@ reposOnDom();
 form.reset();
 }
 form.addEventListener("submit", addRepo);
+
   renderToDom("#repos-list", repoDomString);
 };
+
 
 
 
@@ -456,6 +450,10 @@ const startApp = () => {
   }
      if (document.URL.includes("repositories.html")) {
     reposOnDom();}
-}
 
- startApp();
+};
+
+ 
+
+ startApp()
+
